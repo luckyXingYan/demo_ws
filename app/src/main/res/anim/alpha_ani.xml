@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="2000"
+    android:interpolator="@android:anim/linear_interpolator"
+    android:shareInterpolator="true">
+    <!--interpolator===插值器，影响动画速度
+    shareInterpolator===<set>集合中的动画是否和<set>集合共享一个插值器，如果不共享，则子动画需要单独制定插值器 -->
+    <alpha
+        android:fromAlpha="0"
+        android:toAlpha="1"/>
+</set>

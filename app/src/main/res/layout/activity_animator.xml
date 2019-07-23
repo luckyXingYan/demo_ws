@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn01"
+           android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="补间Tween/视图==透明动画"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn02"
+           android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="补间Tween/视图==旋转动画"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn03"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+            android:text="补间Tween/视图==缩放动画"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn04"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+            android:text="补间Tween/视图==位移动画"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn05"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+            android:text="补间Tween/视图==AnimationSet组合动画容器"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn06"
+            android:layout_width="match_parent"
+           android:layout_height="40dp"
+            android:text="帧动画==Drawable/Frame动画,XML放在res/drawable/,animation-list + item"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn07"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+            android:text="属性动画==ValueAnimator.ofFloat"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn08"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+            android:text="属性动画==ValueAnimator.ofInt"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn09"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+            android:text="属性动画==ObjectAnimator"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn10"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+            android:text="属性动画==AnimatorSet"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn11"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+            android:text="属性动画==ViewPropertyAnimator动画"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/tv01"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+            android:layout_marginBottom="50dp"
+            android:text="View"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btn12"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+            android:text="属性动画==给LayoutTransition布局添加View"
+            android:textAllCaps="false" />
+
+        <LinearLayout
+            android:id="@+id/ll"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:text="属性动画==LayoutTransition布局动画" />
+
+        <Button
+            android:id="@+id/btn13"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+            android:layout_margin="30dp"
+            android:stateListAnimator="@animator/bg_select"
+            android:text="属性动画==StateListAnimator"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn14"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+            android:layout_margin="30dp"
+            android:background="@drawable/ripple_ani"
+            android:padding="50dp"
+            android:text="按钮触摸反馈动画"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+</ScrollView>
