@@ -7,11 +7,23 @@
     android:orientation="vertical"
     tools:context=".SocketActivity">
 
+    <TextView
+        android:id="@+id/tv_server"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="服务器状态:" />
+
     <Button
         android:id="@+id/start_server"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="开启服务器" />
+
+    <TextView
+        android:id="@+id/tv_client"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="客户端状态:" />
 
     <Button
         android:id="@+id/start_client"

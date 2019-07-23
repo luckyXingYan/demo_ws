@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import java.net.Socket;
+
 /**
  * 动画分类演示
  */
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, ScrollerActivity.class));
                 break;
             case R.id.btn_socket://socket
+                startActivity(new Intent(this, SocketActivity.class));
                 break;
             default:
                 break;
