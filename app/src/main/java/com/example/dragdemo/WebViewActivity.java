@@ -70,12 +70,12 @@ public class WebViewActivity extends AppCompatActivity {
         webSettings.setBuiltInZoomControls(true);//设置内置的缩放控件，true可缩放
         webSettings.setDisplayZoomControls(false);//是否显示原生的缩放控件(即 加、减号的图标 )
 
-        Log.e(TAG, webSettings.supportZoom()+"===");//判断当前页面是否支持缩放
+        Log.e(TAG, webSettings.supportZoom() + "===");//判断当前页面是否支持缩放
 
         webSettings.setTextZoom(100);//默认100,保证webview的自提大小不随手机自带字体大小改变
         webSettings.setDefaultTextEncodingName("UTF-8");//默认是utf-8,设置字符编码
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             webSettings.setMediaPlaybackRequiresUserGesture(true);//对于视频是否需要手势点击才能播放，默认true==需要，改为false可实现自动播放
         }
 
@@ -86,7 +86,7 @@ public class WebViewActivity extends AppCompatActivity {
          * mixed_content_never_allow：不允许https加载http的内容 == 默认方式
          * mixed_content_compatibility_allow：当涉及到混合式内容时，WebView 会尝试去兼容最新Web浏览器的风格
          */
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             //解决Android 5.0 上 https的页面不能直接访问http的页面的问题
             webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
@@ -102,8 +102,20 @@ public class WebViewActivity extends AppCompatActivity {
          * 使用标签 可以禁止项目中 所有的WebView的安全浏览功能
          *
          */
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O){
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
             webSettings.setSafeBrowsingEnabled(true);//代码设置是否启用安全浏览
         }
+    }
+
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        Log.e(TAG, "onDetachedFromWindow");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e(TAG, "onDestroy");
     }
 }
