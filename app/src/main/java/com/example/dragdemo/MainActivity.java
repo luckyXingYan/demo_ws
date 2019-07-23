@@ -6,13 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import java.net.Socket;
-
 /**
  * 动画分类演示
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    //给Button设置 android:textAllCaps="false" 属性，防止text变大写
     private Button btn15, btn_animator, btn_socket;
+    private Button btnWebView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +25,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn15 = findViewById(R.id.btn15);
         btn_animator = findViewById(R.id.btn_animator);
         btn_socket = findViewById(R.id.btn_socket);
+        btnWebView = (Button) findViewById(R.id.btn_web_view);
         btn15.setOnClickListener(this);
         btn_animator.setOnClickListener(this);
         btn_socket.setOnClickListener(this);
+        btnWebView.setOnClickListener(this);
     }
 
     @Override
@@ -41,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_socket://socket
                 startActivity(new Intent(this, SocketActivity.class));
+                break;
+            case R.id.btn_web_view://WebView分析
+                startActivity(new Intent(this, WebViewActivity.class));
                 break;
             default:
                 break;

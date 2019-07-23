@@ -13,21 +13,30 @@
 
         <Button
             android:id="@+id/btn_animator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="动画" />
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="动画"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Scroller分析" />
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Scroller分析"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_socket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="socket" />
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="socket"
+            android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btn_web_view"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="WebView"
+            android:textAllCaps="false" />
     </LinearLayout>
 </ScrollView>
