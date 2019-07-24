@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context=".WebViewActivity">
 
+    <Button
+        android:id="@+id/btn_js"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="加载JS代码"/>
+
     <WebView
         android:id="@+id/web_view"
         android:layout_width="match_parent"
