@@ -140,4 +140,5 @@ public class MyView extends View {
         super.onDetachedFromWindow();
 //        scroller.abortAnimation();
     }
+
 }
