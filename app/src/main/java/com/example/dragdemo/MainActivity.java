@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_animator.setOnClickListener(this);
         btn_socket.setOnClickListener(this);
         btnActService.setOnClickListener(this);
+        btnWebView.setOnClickListener(this);
     }
 
     @Override
