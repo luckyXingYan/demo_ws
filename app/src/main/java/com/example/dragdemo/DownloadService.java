@@ -69,6 +69,9 @@ public class DownloadService extends Service {
         }
     }
 
+    /**
+     * 接口回调
+     */
     private UpdateProgressListener updateProgressListener;
 
     public interface UpdateProgressListener {

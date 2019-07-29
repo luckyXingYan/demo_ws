@@ -385,6 +385,11 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
             webView.clearView();
             webView.removeAllViews();
             webView.destroy();
+            /**
+             * 此处的webview是全局变量的强引用，所以要释放，设为null，等 jvm 的gc 来回收
+             * 如果是在一个强引用方法体中，new 出一个局部强引用的变量 则不用手动 = null，因为局部变量会被gc回收
+             */
+            webView = null;
         }
     }
 

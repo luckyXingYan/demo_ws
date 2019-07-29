@@ -13,18 +13,16 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 /**
- * Binder 只适用于本应用程序内适用，即组件和Service在同一个进程中
+ * Binder  === bindService === 只适用于本应用程序内适用，即组件和Service在同一个进程中
  * 给清单文件的 <service> 配置此属性  android:process=":remote"  会报错
  */
 public class ServiceBinderActivity extends AppCompatActivity implements View.OnClickListener {
     private final static String TAG = "--ServiceBinderActivity";
     private Button btnBindService;
-    private Button btnUnbindService;
     private Button btnMsgService;
 
     private Button btnBindDownloadService;
     private Button btnDownloadService;
-    private Button btnUnbindDownloadService;
     private ProgressBar progressBar;
 
     private Intent serviceIntent, startDownloadIntent;
@@ -78,24 +76,20 @@ public class ServiceBinderActivity extends AppCompatActivity implements View.OnC
 
     private void initView() {
         btnBindService = (Button) findViewById(R.id.btn_bind_service);
-        btnUnbindService = (Button) findViewById(R.id.btn_unbind_service);
         btnMsgService = (Button) findViewById(R.id.btn_msg_service);
 
         btnBindDownloadService = (Button) findViewById(R.id.btn_bind_download_service);
         btnDownloadService = (Button) findViewById(R.id.btn_download_service);
-        btnUnbindDownloadService = (Button) findViewById(R.id.btn_unbind_download_service);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
 
         btnBindService.setOnClickListener(this);
-        btnUnbindService.setOnClickListener(this);
         btnMsgService.setOnClickListener(this);
         btnBindDownloadService.setOnClickListener(this);
         btnDownloadService.setOnClickListener(this);
-        btnUnbindDownloadService.setOnClickListener(this);
 
-        serviceIntent = new Intent(this, BinderService.class);
+//        serviceIntent = new Intent(this, BinderService.class);
         startDownloadIntent = new Intent(this, DownloadService.class);
     }
 
@@ -103,22 +97,24 @@ public class ServiceBinderActivity extends AppCompatActivity implements View.OnC
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_bind_service://绑定服务
-                bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE);
+                if (serviceIntent != null) {
+                    bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE);
+                }
                 break;
             case R.id.btn_msg_service://Binder 通信
-                binderService.doAnything("通信");
-                break;
-            case R.id.btn_unbind_service://解绑服务
-                unbindService(serviceConnection);
+                if (binderService != null) {
+                    binderService.doAnything("通信");
+                }
                 break;
             case R.id.btn_bind_download_service://绑定下载服务
-                bindService(startDownloadIntent, serviceConnectionDownload, Context.BIND_AUTO_CREATE);
+                if (startDownloadIntent != null) {
+                    bindService(startDownloadIntent, serviceConnectionDownload, Context.BIND_AUTO_CREATE);
+                }
                 break;
             case R.id.btn_download_service://下载开始
-                downloadService.startDownload("下载资源id");
-                break;
-            case R.id.btn_unbind_download_service://解绑下载服务
-                unbindService(serviceConnectionDownload);
+                if (downloadService != null) {
+                    downloadService.startDownload("下载资源id");
+                }
                 break;
             default:
                 break;
@@ -130,7 +126,7 @@ public class ServiceBinderActivity extends AppCompatActivity implements View.OnC
      */
     @Override
     protected void onDestroy() {
-        unbindService(serviceConnection);
+//            unbindService(serviceConnection);
         unbindService(serviceConnectionDownload);
         super.onDestroy();
     }

@@ -23,19 +23,11 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/btn_unbind_service"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="解绑服务"
-        app:layout_constraintTop_toBottomOf="@id/btn_msg_service"
-        tools:ignore="MissingConstraints" />
-
-    <Button
         android:id="@+id/btn_bind_download_service"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="绑定下载服务"
-        app:layout_constraintTop_toBottomOf="@id/btn_unbind_service"
+        app:layout_constraintTop_toBottomOf="@id/btn_msg_service"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -46,20 +38,12 @@
         app:layout_constraintTop_toBottomOf="@id/btn_bind_download_service"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/btn_unbind_download_service"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="解绑下载服务"
-        app:layout_constraintTop_toBottomOf="@id/btn_download_service"
-        tools:ignore="MissingConstraints" />
-
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="#00ffff"
-        app:layout_constraintTop_toBottomOf="@id/btn_unbind_download_service"
+        app:layout_constraintTop_toBottomOf="@id/btn_download_service"
         tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>

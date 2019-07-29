@@ -23,4 +23,30 @@
         app:layout_constraintTop_toBottomOf="@id/btn_binder"
         tools:ignore="MissingConstraints" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="通过 共享文件 SharedPreferences 高并发不适用"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/btn_binder"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn_messenger"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="通过 Messenger"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/btn_binder"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn_aidl"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="通过 AIDL"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/btn_binder"
+        tools:ignore="MissingConstraints" />
+
 </android.support.constraint.ConstraintLayout>
