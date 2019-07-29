@@ -7,6 +7,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -16,6 +17,7 @@ import android.widget.ProgressBar;
  * 给清单文件的 <service> 配置此属性  android:process=":remote"  会报错
  */
 public class ServiceBinderActivity extends AppCompatActivity implements View.OnClickListener {
+    private final static String TAG = "--ServiceBinderActivity";
     private Button btnBindService;
     private Button btnUnbindService;
     private Button btnMsgService;
@@ -32,6 +34,7 @@ public class ServiceBinderActivity extends AppCompatActivity implements View.OnC
     private ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder iBinder) {
+            Log.e(TAG, "serviceConnection===onServiceConnected");
             BinderService.MyBinder myBinder = (BinderService.MyBinder) iBinder;
             binderService = myBinder.getBinderService();
         }
@@ -44,6 +47,8 @@ public class ServiceBinderActivity extends AppCompatActivity implements View.OnC
     private ServiceConnection serviceConnectionDownload = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
+
+            Log.e(TAG, "serviceConnectionDownload===onServiceConnected");
 
             DownloadService.DownloadBinder downloadBinder = (DownloadService.DownloadBinder) service;
             downloadService = downloadBinder.getService();
