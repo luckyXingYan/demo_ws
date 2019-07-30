@@ -33,7 +33,7 @@ public class ServiceToActivity extends AppCompatActivity implements View.OnClick
                 Log.e("---AAA2", Thread.currentThread().getName());
             }
         });
-        thread.start();
+//        thread.start();
         thread.run();
     }
 

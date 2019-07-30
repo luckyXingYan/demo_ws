@@ -15,6 +15,12 @@ import android.widget.ProgressBar;
 /**
  * Binder  === bindService === 只适用于本应用程序内适用，即组件和Service在同一个进程中
  * 给清单文件的 <service> 配置此属性  android:process=":remote"  会报错
+ * <p>
+ * 创建服务 service -- 服务中创建 Binder 对象， 在 Binder 对象中创建获取当前服务对象的方法 --
+ * 服务中 onBind 方法中返回 binder 对象 -- activity 中绑定服务 --
+ * activity 中创建 ServiceConnection 复写方法 onServiceConnected -- onServiceConnected 拿到 IBinder 对象，
+ * 通过 IBinder 获取 DownloadService 对象 -- 通过 DownloadService 调 服务的下载方法 可以参数的形式传入下载的资源id --
+ * 服务中通过接口回调 把数据 回传给activity -- 并在 onServiceConnected 方法中 通过 DownloadService 设置更新监听器，更新 progressbar
  */
 public class ServiceBinderActivity extends AppCompatActivity implements View.OnClickListener {
     private final static String TAG = "--ServiceBinderActivity";

@@ -12,7 +12,10 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * 广播 === startService ===
+ * 广播 === startService === 推荐 动态注册广播
+ * <p>
+ * 创建服务 -- activity 中开启服务，可通过 intent 传递数据给服务 -- 服务的 onStartCommand 方法中 通过 广播 intent 数据 + action 发送给 activity --
+ * activity 中创建内部类广播 -- 动态注册对应 action 的广播 -- 广播的 onReceive(Context context, Intent intent)中获取携带过来的数据 并更新 ui
  */
 public class ServiceBroadcastActivity extends AppCompatActivity implements View.OnClickListener {
     private final static String TAG = "ServiceBroadcastActivity";
