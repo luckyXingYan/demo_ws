@@ -14,4 +14,11 @@
         android:textAllCaps="false"
         tools:ignore="MissingConstraints" />
 
+    <Button
+        app:layout_constraintTop_toBottomOf="@id/btn_visit_mail_list"
+        android:id="@+id/btn_cp_db"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="进程内通信 contentProvider 利用数据库"
+        android:textAllCaps="false" />
 </android.support.constraint.ConstraintLayout>
