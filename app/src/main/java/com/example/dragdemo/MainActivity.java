@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btn15, btn_animator, btn_socket;
     private Button btnWebView;
     private Button btnActService;
+    private Button btnCp;
 
 
     @Override
@@ -29,11 +30,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_socket = findViewById(R.id.btn_socket);
         btnWebView = (Button) findViewById(R.id.btn_web_view);
         btnActService = (Button) findViewById(R.id.btn_act_service);
+        btnCp = (Button) findViewById(R.id.btn_cp);
         btn15.setOnClickListener(this);
         btn_animator.setOnClickListener(this);
         btn_socket.setOnClickListener(this);
         btnActService.setOnClickListener(this);
         btnWebView.setOnClickListener(this);
+        btnCp.setOnClickListener(this);
     }
 
     @Override
@@ -52,7 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, WebViewActivity.class));
                 break;
             case R.id.btn_act_service://activity 与 service 交互
-                startActivity(new Intent(this,ServiceToActivity.class));
+                startActivity(new Intent(this, ServiceToActivity.class));
+                break;
+            case R.id.btn_cp://contentProvider
+                startActivity(new Intent(this, ContentProviderActivity.class));
                 break;
             default:
                 break;

@@ -56,6 +56,8 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
     private void initListener() {
         //==============================WebViewClient相关方法=========================
         /**
+         * setWebViewClient：处理webView的控制问题，如加载、关闭、错误处理等
+         *
          * shouldOverrideUrlLoading：重定向时被调用（网页自动重定型 或者 手动点击网页内部链接）
          * onTooManyRedirects 过时且废弃的方法，也是用于重定向
          */
@@ -196,6 +198,9 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
 
         });
         //==============================WebChromeClient 相关方法=========================
+        /**
+         * setWebChromeClient：主要处理处理progress的加载、js对话框、webview中显示icon图标、页面标题等
+         */
         webView.setWebChromeClient(new WebChromeClient() {
             //监听网页加载进度
             @Override

@@ -2,11 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.dragdemo">
-
     <!-- socket所需权限 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" /> <!-- webview需要的网络权限 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!--contentProvider 获取手机通讯录-->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ContentProviderActivity"></activity>
         <activity android:name=".ServiceBinderActivity" />
         <activity android:name=".ServiceToActivity" />
         <activity android:name=".WebViewActivity" />
@@ -28,7 +32,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <!--
         Binder  === bindService === 只适用于本应用程序内适用，即组件和Service在同一个进程中
         给清单文件的 <service> 配置此属性  android:process=":remote"  会报错
@@ -36,7 +39,7 @@
         <service android:name=".BinderService" />
         <service android:name=".DownloadService" />
 
-        <activity android:name=".ServiceBroadcastActivity"></activity>
+        <activity android:name=".ServiceBroadcastActivity" />
 
         <service android:name=".BroadcastService" />
     </application>
