@@ -19,7 +19,7 @@ import kr.co.namee.permissiongen.PermissionGen;
 import kr.co.namee.permissiongen.PermissionSuccess;
 
 /**
-
+ * contentProvider 内容提供者，四大组件之一， 底层原理是 android 中的 binder 机制
  */
 public class ContentProviderActivity extends AppCompatActivity implements View.OnClickListener {
     private final static String TAG = "ContentProviderActivity";

@@ -34,7 +34,7 @@ public class MyContentProvider extends ContentProvider {
     }
 
     @Override
-    public boolean onCreate() {
+    public boolean onCreate() {//运行在ContentProvider进程中的主线程，不能做耗时操作
         //初始化 DBHelper 获取 数据库对象 SQLiteDatabase
         mDBHelper = new DBHelper(getContext());
         mSQLiteDatabase = mDBHelper.getWritableDatabase();
@@ -49,6 +49,14 @@ public class MyContentProvider extends ContentProvider {
 
         return true;
     }
+
+    /**
+     * 增、删、改、查 运行在ContentProvider进程的Binder线程池中（不是主线程）
+     * 所以 存在多线程并发访问，需要实现线程同步。
+     * 若ContentProvider的数据存储方式是使用SQLite & 一个，则不需要自己实现同步，因为SQLite内部实现好了线程同步；
+     * 若是多个SQLite则需要，因为SQL对象之间无法进行线程同步；
+     * 若ContentProvider的数据存储方式是内存，则也需要自己实现线程同步.
+     */
 
     @Nullable
     @Override
@@ -72,6 +80,7 @@ public class MyContentProvider extends ContentProvider {
         return tableName;
     }
 
+    // 得到数据类型，即返回当前 Url 所代表数据的MIME类型
     @Nullable
     @Override
     public String getType(@NonNull Uri uri) {
