@@ -4,9 +4,11 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.database.ContentObserver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +27,34 @@ public class ContentProviderActivity extends AppCompatActivity implements View.O
     private final static String TAG = "ContentProviderActivity";
     private Button btnVisitMailList;
     private Button btnCpDb;
+
+    /**
+     * ContentObserver 内容观察者
+     * 观察 Uri引起 ContentProvider 中的数据变化(增、删 & 改) & 通知外界（即访问该数据访问者）
+     * 可触发 ContentObserver 的 onChange 方法，在 onChange 方法中可做出针对数据库变化的反应，比如更新UI等。
+     * & 通过ContentObserver可通知外界
+     * 注册 ContentObserver --> 通知外界 notifyChange --> 反注册 ContentObserver
+     */
+    private ContentObserver contentObserver = new ContentObserver(new Handler()) {
+
+        @Override
+        public boolean deliverSelfNotifications() {
+            Log.e(TAG, "deliverSelfNotifications");
+            return super.deliverSelfNotifications();
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            Log.e(TAG, "onChange：selfChange = " + selfChange);
+            super.onChange(selfChange);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            Log.e(TAG, "onChange：selfChange = " + selfChange + "，uri = " + uri);
+            super.onChange(selfChange, uri);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +101,10 @@ public class ContentProviderActivity extends AppCompatActivity implements View.O
                 //user 表
                 Uri uri = Uri.parse("content://com.example.dragdemo/user");
                 ContentResolver mContentResolver = getContentResolver();
+
+                //===注册内容观察者ContentObserver
+                mContentResolver.registerContentObserver(uri, true, contentObserver);
+
                 //插入
                 ContentValues mContentValues = new ContentValues();
                 mContentValues.put("_id", "3");
@@ -82,6 +116,8 @@ public class ContentProviderActivity extends AppCompatActivity implements View.O
                     Log.e(TAG, "query user:" + mCursor.getInt(0) + " " + mCursor.getString(1) + "\n");
                 }
                 mCursor.close();
+                //===解除观察者
+                mContentResolver.unregisterContentObserver(contentObserver);
 
                 //job 表
                 Uri uriJob = Uri.parse("content://com.example.dragdemo/job");
@@ -158,5 +194,4 @@ public class ContentProviderActivity extends AppCompatActivity implements View.O
     public void onRequestPermissionsFail() {
         Log.e(TAG, "onRequestPermissionsFail");
     }
-
 }

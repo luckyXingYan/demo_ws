@@ -7,6 +7,22 @@
     tools:context=".ConstraintLayoutActivity"
     tools:ignore="MissingConstraints">
 
+    <!--banner，宽度为占据整个屏幕，宽高比为16：6
+        app:layout_constraintDimensionRatio="W,16:6"
+        app:layout_constraintDimensionRatio="H,16:6"-->
+    <TextView
+        android:id="@+id/tv_banner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#455"
+        android:gravity="center"
+        android:text="banner"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintDimensionRatio="H,16:6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
     <ImageView
         android:id="@+id/iv_icon"
         android:layout_width="100dp"
@@ -15,7 +31,7 @@
         android:layout_marginTop="12dp"
         android:background="#fff000"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tv_banner" />
 
     <TextView
         android:id="@+id/tv_title"
@@ -31,6 +47,7 @@
         app:layout_constraintTop_toTopOf="@id/iv_icon" />
 
     <TextView
+        android:id="@+id/tv_content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -41,4 +58,120 @@
         app:layout_constraintBottom_toBottomOf="@id/iv_icon"
         app:layout_constraintLeft_toRightOf="@id/iv_icon" />
 
+    <!--app:layout_constraintHorizontal_weight="3" + 宽度为0
+          app:layout_constraintVertical_weight="2"
+          相当于 linearLayout 的 weight 属性-->
+    <TextView
+        android:id="@+id/tv_tab1"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#ef5"
+        android:gravity="center"
+        android:text="Tab1"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_tab2"
+        app:layout_constraintTop_toBottomOf="@id/tv_content" />
+
+    <TextView
+        android:id="@+id/tv_tab2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#dda"
+        android:gravity="center"
+        android:text="Tab2"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/tv_tab1"
+        app:layout_constraintRight_toLeftOf="@+id/tv_tab3"
+        app:layout_constraintTop_toBottomOf="@id/tv_content" />
+
+    <TextView
+        android:id="@+id/tv_tab3"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#aa5"
+        android:gravity="center"
+        android:text="Tab3"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/tv_tab2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_content" />
+    <!--layout_constraintHorizontal_chainStyle + 宽度非0
+        spread/spread_inside/packed-->
+    <TextView
+        android:id="@+id/tv_tab4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#e99"
+        android:gravity="center"
+        android:text="Tab4"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_tab5"
+        app:layout_constraintTop_toBottomOf="@id/tv_tab3" />
+
+    <TextView
+        android:id="@+id/tv_tab5"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#f22"
+        android:gravity="center"
+        android:text="Tab5"
+        app:layout_constraintLeft_toRightOf="@id/tv_tab4"
+        app:layout_constraintRight_toLeftOf="@+id/tv_tab6"
+        app:layout_constraintTop_toBottomOf="@id/tv_tab3" />
+
+    <TextView
+        android:id="@+id/tv_tab6"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#898"
+        android:gravity="center"
+        android:text="Tab6"
+        app:layout_constraintLeft_toRightOf="@id/tv_tab5"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_tab3" />
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="#546"
+        android:gravity="center"
+        android:text="悬浮"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9" />
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_w"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="#612"
+        app:layout_constraintLeft_toRightOf="@id/guideline_w"
+        app:layout_constraintTop_toBottomOf="@id/guideline_h" />
 </android.support.constraint.ConstraintLayout>

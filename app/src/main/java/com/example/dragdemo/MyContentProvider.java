@@ -94,7 +94,7 @@ public class MyContentProvider extends ContentProvider {
 
         mSQLiteDatabase.insert(tableName, null, values);
 
-        //当该URI的ContentProvider数据发生变化时，通知外界（即访问该ContentProvider数据的访问者）
+        //===当该URI的ContentProvider数据发生变化时，通知外界（即访问该ContentProvider数据的访问者）
         ContentResolver mContentResolver = getContext().getContentResolver();
         mContentResolver.notifyChange(uri, null);
         return uri;

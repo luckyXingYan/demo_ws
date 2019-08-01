@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, BitmapActivity.class));
                 break;
             case R.id.btn_constraintLayout://constraintLayout 样例
+                startActivity(new Intent(this, ConstraintLayoutActivity.class));
                 break;
             default:
                 break;
