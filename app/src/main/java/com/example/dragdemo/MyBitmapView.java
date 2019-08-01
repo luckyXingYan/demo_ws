@@ -21,10 +21,21 @@ import java.io.InputStream;
 public class MyBitmapView extends View {
     private int imgWidth, imgHeight;
     private BitmapRegionDecoder bitmapRegionDecoder;
-    private Rect rect;
-    private BitmapFactory.Options options;
     private float mX;
     private float mY;
+
+    private static final BitmapFactory.Options options = new BitmapFactory.Options();
+    /**
+     * 绘制的区域
+     * //Rect类与RectF类（android.graphics.RectF）的区别??
+     * //答：主要还是在精度上的不同，他们分别是：int、float类型的
+     */
+    private volatile Rect rect = new Rect();
+
+
+    static {
+        options.inPreferredConfig = Bitmap.Config.RGB_565;
+    }
 
     public MyBitmapView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -32,23 +43,35 @@ public class MyBitmapView extends View {
     }
 
     private void init() {
-        //Rect类与RectF类（android.graphics.RectF）的区别??
-        //答：主要还是在精度上的不同，他们分别是：int、float类型的
-        rect = new Rect();
     }
 
     public void initInputStream(InputStream inputStream) {
-        options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeStream(inputStream, null, options);
-        imgWidth = options.outWidth;
-        imgHeight = options.outHeight;
         try {
+
+
+            BitmapFactory.Options optionsTemp = new BitmapFactory.Options();
+            optionsTemp.inJustDecodeBounds = true;
+            BitmapFactory.decodeStream(inputStream, null, optionsTemp);
+            //放在 decodeStream 后，否则 width、height为 -1
+            imgWidth = optionsTemp.outWidth;
+            imgHeight = optionsTemp.outHeight;
+
+            //要放在 获取完 宽、高 后面
             bitmapRegionDecoder = BitmapRegionDecoder.newInstance(inputStream, false);
+
             requestLayout();
             invalidate();
+
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
 
@@ -74,12 +97,12 @@ public class MyBitmapView extends View {
                 if (imgWidth > getWidth()) {
                     //该矩阵在x轴和y轴分别发生的偏移量（很有用，可以上下移动矩阵）
                     rect.offset((int) (mX - event.getX()), 0);
-                    measureWidth();
+                    checkWidth();
                     invalidate();
                 }
                 if (imgHeight > getHeight()) {
                     rect.offset(0, (int) (mY - event.getY()));
-                    measureHeight();
+                    checkHeight();
                     invalidate();
                 }
                 break;
@@ -90,7 +113,7 @@ public class MyBitmapView extends View {
         return true;
     }
 
-    private void measureWidth() {
+    private void checkWidth() {
         if (rect.right > imgWidth) {
             rect.right = imgWidth;
             rect.left = imgWidth - getWidth();
@@ -102,7 +125,7 @@ public class MyBitmapView extends View {
 
     }
 
-    private void measureHeight() {
+    private void checkHeight() {
         if (rect.bottom > imgHeight) {
             rect.bottom = imgHeight;
             rect.top = imgHeight - getHeight();

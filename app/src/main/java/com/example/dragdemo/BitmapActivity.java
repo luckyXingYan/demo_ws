@@ -79,7 +79,7 @@ public class BitmapActivity extends AppCompatActivity implements View.OnClickLis
                     imgWidth = optionsTemp.outWidth;
                     imgHeight = optionsTemp.outHeight;
 
-
+                    //要放在 获取完 宽、高 后面
                     bitmapRegionDecoder = BitmapRegionDecoder.newInstance(inputStream, false);
 
                     options = new BitmapFactory.Options();
@@ -94,14 +94,14 @@ public class BitmapActivity extends AppCompatActivity implements View.OnClickLis
                     e.printStackTrace();
                 }
                 break;
-            case R.id.btn_load_view:
+            case R.id.btn_load_view://自定义 view 局部大图
                 try {
                     if (inputStream == null) {
-                        inputStream = getAssets().open("beauty.jpg");
+                        inputStream = getAssets().open("world.jpg");
                     }
-                    inputStream.mark(inputStream.available());//标记起点
+//                    inputStream.mark(inputStream.available());//标记起点
                     viewMy.initInputStream(inputStream);
-                    inputStream.reset(); //用完inputStream后就重置状态，否则下次(inputStream.available()为0，无法再次使用
+//                    inputStream.reset(); //用完inputStream后就重置状态，否则下次(inputStream.available()为0，无法再次使用
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
