@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BitmapActivity">
+
+    <Button
+        android:id="@+id/btn_load"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="加载大图"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn_load_view"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="加载自定义view中的大图"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/btn_load"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/iv_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/btn_load_view" />
+
+    <!--
+    当我们使用ConstraintLayout布局时，会发现无法使用match_parent，如果使用，设置后的控件会铺满整个屏幕。
+    解决方案：如果想实现宽度match_parent，就设置宽度为0dp，再设置左约束和右约束；
+            如果想实现高度match_parent，就设置高度为0dp，再设置上约束和下约束。-->
+    <com.example.dragdemo.MyBitmapView
+        android:id="@+id/view_my"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_load_view" />
+</android.support.constraint.ConstraintLayout>

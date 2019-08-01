@@ -1,6 +1,8 @@
 package com.example.dragdemo;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapRegionDecoder;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnWebView;
     private Button btnActService;
     private Button btnCp;
-
+    private Button btnBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +33,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnWebView = (Button) findViewById(R.id.btn_web_view);
         btnActService = (Button) findViewById(R.id.btn_act_service);
         btnCp = (Button) findViewById(R.id.btn_cp);
+        btnBitmap = (Button) findViewById(R.id.btn_bitmap);
         btn15.setOnClickListener(this);
         btn_animator.setOnClickListener(this);
         btn_socket.setOnClickListener(this);
         btnActService.setOnClickListener(this);
         btnWebView.setOnClickListener(this);
         btnCp.setOnClickListener(this);
+        btnBitmap.setOnClickListener(this);
     }
 
     @Override
@@ -59,6 +63,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_cp://contentProvider
                 startActivity(new Intent(this, ContentProviderActivity.class));
+
+//                BitmapRegionDecoder bitmapRegionDecoder  = BitmapRegionDecoder.newInstance(null,true);
+//                Bitmap bitmap = bitmapRegionDecoder.decodeRegion()
+                break;
+            case R.id.btn_bitmap://大图 局部位置 预加载
+                startActivity(new Intent(this, BitmapActivity.class));
                 break;
             default:
                 break;
