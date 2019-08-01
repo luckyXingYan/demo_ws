@@ -58,5 +58,12 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="大图局部位置预加载" />
+
+        <Button
+            android:id="@+id/btn_constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="constraintLayout 应用"
+            android:textAllCaps="false" />
     </LinearLayout>
 </ScrollView>

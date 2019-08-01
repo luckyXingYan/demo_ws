@@ -1,8 +1,6 @@
 package com.example.dragdemo;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapRegionDecoder;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -18,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnActService;
     private Button btnCp;
     private Button btnBitmap;
+    private Button btnConstraintLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnActService = (Button) findViewById(R.id.btn_act_service);
         btnCp = (Button) findViewById(R.id.btn_cp);
         btnBitmap = (Button) findViewById(R.id.btn_bitmap);
+        btnConstraintLayout = (Button) findViewById(R.id.btn_constraintLayout);
         btn15.setOnClickListener(this);
         btn_animator.setOnClickListener(this);
         btn_socket.setOnClickListener(this);
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnWebView.setOnClickListener(this);
         btnCp.setOnClickListener(this);
         btnBitmap.setOnClickListener(this);
+        btnConstraintLayout.setOnClickListener(this);
     }
 
     @Override
@@ -63,12 +64,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_cp://contentProvider
                 startActivity(new Intent(this, ContentProviderActivity.class));
-
-//                BitmapRegionDecoder bitmapRegionDecoder  = BitmapRegionDecoder.newInstance(null,true);
-//                Bitmap bitmap = bitmapRegionDecoder.decodeRegion()
                 break;
             case R.id.btn_bitmap://大图 局部位置 预加载
                 startActivity(new Intent(this, BitmapActivity.class));
+                break;
+            case R.id.btn_constraintLayout://constraintLayout 样例
                 break;
             default:
                 break;
