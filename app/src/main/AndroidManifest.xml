@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BitmapActivity"></activity>
+        <activity android:name=".BitmapActivity" />
         <activity android:name=".ContentProviderActivity" />
         <activity android:name=".ServiceBinderActivity" />
         <activity android:name=".ServiceToActivity" />
@@ -24,13 +24,18 @@
         <activity android:name=".SocketActivity" />
         <activity android:name=".AnimatorActivity" />
         <activity android:name=".ScrollerActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <!--
         Binder  === bindService === 只适用于本应用程序内适用，即组件和Service在同一个进程中
         给清单文件的 <service> 配置此属性  android:process=":remote"  会报错

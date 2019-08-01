@@ -25,7 +25,7 @@
     <ImageView
         android:id="@+id/iv_bg"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:scaleType="centerCrop"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/btn_load_view" />
@@ -33,7 +33,9 @@
     <!--
     当我们使用ConstraintLayout布局时，会发现无法使用match_parent，如果使用，设置后的控件会铺满整个屏幕。
     解决方案：如果想实现宽度match_parent，就设置宽度为0dp，再设置左约束和右约束；
-            如果想实现高度match_parent，就设置高度为0dp，再设置上约束和下约束。-->
+            如果想实现高度match_parent，就设置高度为0dp，再设置上约束和下约束。
+            0dp 代表了 constraintLayout 的 MATCH_CONSTRAINT
+            所以 在ConstraintLayout中已经不支持MATCH_PARENT这个值了，你可以通过MATCH_CONSTRAINT配合约束实现类似的效果-->
     <com.example.dragdemo.MyBitmapView
         android:id="@+id/view_my"
         android:layout_width="match_parent"
