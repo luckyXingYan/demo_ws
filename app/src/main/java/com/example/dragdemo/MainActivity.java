@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnCp;
     private Button btnBitmap;
     private Button btnConstraintLayout;
+    private Button btnView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCp = (Button) findViewById(R.id.btn_cp);
         btnBitmap = (Button) findViewById(R.id.btn_bitmap);
         btnConstraintLayout = (Button) findViewById(R.id.btn_constraintLayout);
+        btnView = (Button) findViewById(R.id.btn_view);
         btn15.setOnClickListener(this);
         btn_animator.setOnClickListener(this);
         btn_socket.setOnClickListener(this);
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCp.setOnClickListener(this);
         btnBitmap.setOnClickListener(this);
         btnConstraintLayout.setOnClickListener(this);
+        btnView.setOnClickListener(this);
     }
 
     @Override
@@ -70,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_constraintLayout://constraintLayout 样例
                 startActivity(new Intent(this, ConstraintLayoutActivity.class));
+                break;
+            case R.id.btn_view://自定义view
+                startActivity(new Intent(this, CustomViewActivity.class));
                 break;
             default:
                 break;
