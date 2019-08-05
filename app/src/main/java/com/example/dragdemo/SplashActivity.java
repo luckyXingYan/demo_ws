@@ -1,8 +1,8 @@
 package com.example.dragdemo;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -21,7 +21,18 @@ public class SplashActivity extends AppCompatActivity {
          * 3、随后进入MainActivity
          */
         setContentView(R.layout.activity_splash);
-        startActivity(new Intent(this, MainActivity.class));
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
+            }
+        }).start();
         finish();
     }
 }
