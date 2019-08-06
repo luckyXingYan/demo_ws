@@ -2,7 +2,7 @@
 <resources>
     <declare-styleable name="CustomView">
         <attr name="text" format="string" />
-        <attr name="textColor" format="string" />
+        <attr name="textColor" format="dimension" />
         <attr name="textSize" format="dimension" />
     </declare-styleable>
 </resources>
