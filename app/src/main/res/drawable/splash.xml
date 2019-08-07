@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--背景色-->
+    <item android:drawable="@android:color/white" />
+
+    <!--logo图片-->
+    <item
+        android:gravity="center_horizontal"
+        android:top="200dp">
+        <bitmap
+            android:gravity="top"
+            android:src="@drawable/ic_launcher" />
+    </item>
+    <item
+        android:gravity="center_horizontal"
+        android:top="280dp">
+        <bitmap
+            android:gravity="top"
+            android:src="@drawable/aa" />
+    </item>
+    <item
+        android:gravity="center_horizontal"
+        android:bottom="30dp">
+        <bitmap
+            android:gravity="bottom"
+            android:src="@drawable/aa" />
+    </item>
+
+    <!--注意此处的bottom要和activity_splash.xml中的logo图marginBottom的值保持一致-->
+    <!--   <item android:bottom="40dp">
+           &lt;!&ndash; 图片 &ndash;&gt;
+           <bitmap
+               android:gravity="center|bottom"
+               android:src="@drawable/ic_launcher" />
+       </item>-->
+
+    <!--logo图片-->
+    <!--  <item
+          android:width="60dp"
+          android:height="60dp"
+          android:drawable="@mipmap/ic_launcher"
+          android:gravity="center_horizontal"
+          android:top="200dp" />
+      &lt;!&ndash;logo下的文字图片&ndash;&gt;
+      <item
+          android:width="100dp"
+          android:height="30dp"
+          android:drawable="@mipmap/aa"
+          android:gravity="center_horizontal"
+          android:scaleType="fitXY"
+          android:top="270dp" />
+      &lt;!&ndash;闪屏底部文字图片&ndash;&gt;
+      <item
+          android:width="150dp"
+          android:height="30dp"
+          android:bottom="20dp"
+          android:drawable="@mipmap/aa"
+          android:gravity="bottom|center_horizontal"
+          android:scaleType="fitXY" />-->
+</layer-list>

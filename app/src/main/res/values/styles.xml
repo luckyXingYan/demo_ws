@@ -9,8 +9,7 @@
     </style>
 
     <style name="AppTheme.Launcher" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">@mipmap/bg_splash</item>
-        <item name="android:scaleType">centerCrop</item>
+        <item name="android:windowBackground">@drawable/splash</item>
     </style>
 
     <!-- <style name="AppTheme.Launcher" parent="Theme.AppCompat.Light.NoActionBar">
