@@ -10,6 +10,7 @@
     <!--banner，宽度为占据整个屏幕，宽高比为16：6
         app:layout_constraintDimensionRatio="W,16:6"
         app:layout_constraintDimensionRatio="H,16:6"-->
+
     <TextView
         android:id="@+id/tv_banner"
         android:layout_width="0dp"
@@ -19,9 +20,71 @@
         android:text="banner"
         android:textColor="#fff"
         android:textSize="20sp"
-        app:layout_constraintDimensionRatio="H,16:6"
+        app:layout_constraintDimensionRatio="H,2:1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#56f"
+        android:text="标题01"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_banner" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#fd5"
+        android:text="123"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_title1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_banner" />
+
+    <TextView
+        android:id="@+id/tv_title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="#56f"
+        android:text="标题02"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="#fd5"
+        android:text="123"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_title2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title1" />
+
+    <TextView
+        android:id="@+id/tv_title3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#56f"
+        android:text="标题03"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#fd5"
+        android:text="123"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_title3"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title2" />
 
     <ImageView
         android:id="@+id/iv_icon"
@@ -31,7 +94,7 @@
         android:layout_marginTop="12dp"
         android:background="#fff000"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_banner" />
+        app:layout_constraintTop_toBottomOf="@id/tv_title3" />
 
     <TextView
         android:id="@+id/tv_title"
