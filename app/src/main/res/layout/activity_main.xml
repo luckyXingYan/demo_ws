@@ -93,4 +93,12 @@
         android:layout_height="40dp"
         android:text="自定义View"
         app:layout_constraintTop_toBottomOf="@id/btn_constraintLayout" />
+
+    <Button
+        android:id="@+id/btn_mediaPlayer"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:text="MediaPlayer"
+        app:layout_constraintLeft_toRightOf="@id/btn_view"
+        app:layout_constraintTop_toBottomOf="@id/btn_constraintLayout" />
 </android.support.constraint.ConstraintLayout>

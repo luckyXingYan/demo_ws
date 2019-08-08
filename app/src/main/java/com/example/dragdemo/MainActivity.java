@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnBitmap;
     private Button btnConstraintLayout;
     private Button btnView;
-
+    private Button btnMediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnBitmap = (Button) findViewById(R.id.btn_bitmap);
         btnConstraintLayout = (Button) findViewById(R.id.btn_constraintLayout);
         btnView = (Button) findViewById(R.id.btn_view);
+        btnMediaPlayer = (Button) findViewById(R.id.btn_mediaPlayer);
         btn15.setOnClickListener(this);
         btn_animator.setOnClickListener(this);
         btn_socket.setOnClickListener(this);
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnBitmap.setOnClickListener(this);
         btnConstraintLayout.setOnClickListener(this);
         btnView.setOnClickListener(this);
+        btnMediaPlayer.setOnClickListener(this);
     }
 
     @Override
@@ -77,6 +79,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_view://自定义view
                 startActivity(new Intent(this, CustomViewActivity.class));
+                break;
+            case R.id.btn_mediaPlayer://mediaPlayer
+                startActivity(new Intent(this, MediaPlayerActivity.class));
                 break;
             default:
                 break;
