@@ -1,4 +1,4 @@
-package com.example.dragdemo;
+package com.example.dragdemo.util;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

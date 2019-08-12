@@ -92,6 +92,7 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:text="自定义View"
+        android:textAllCaps="false"
         app:layout_constraintTop_toBottomOf="@id/btn_constraintLayout" />
 
     <Button
@@ -99,6 +100,16 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:text="MediaPlayer"
+        android:textAllCaps="false"
         app:layout_constraintLeft_toRightOf="@id/btn_view"
+        app:layout_constraintTop_toBottomOf="@id/btn_constraintLayout" />
+
+    <Button
+        android:id="@+id/btn_NestedScrolling"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:text="NestedScrolling 嵌套滑动"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toRightOf="@id/btn_mediaPlayer"
         app:layout_constraintTop_toBottomOf="@id/btn_constraintLayout" />
 </android.support.constraint.ConstraintLayout>

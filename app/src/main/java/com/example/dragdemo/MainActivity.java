@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnConstraintLayout;
     private Button btnView;
     private Button btnMediaPlayer;
+    private Button btnNestedScrolling;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnConstraintLayout = (Button) findViewById(R.id.btn_constraintLayout);
         btnView = (Button) findViewById(R.id.btn_view);
         btnMediaPlayer = (Button) findViewById(R.id.btn_mediaPlayer);
+        btnNestedScrolling = (Button) findViewById(R.id.btn_NestedScrolling);
         btn15.setOnClickListener(this);
         btn_animator.setOnClickListener(this);
         btn_socket.setOnClickListener(this);
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnConstraintLayout.setOnClickListener(this);
         btnView.setOnClickListener(this);
         btnMediaPlayer.setOnClickListener(this);
+        btnNestedScrolling.setOnClickListener(this);
     }
 
     @Override
@@ -82,6 +86,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_mediaPlayer://mediaPlayer
                 startActivity(new Intent(this, MediaPlayerActivity.class));
+                break;
+            case R.id.btn_NestedScrolling://NestedScrolling 嵌套滑动
+                startActivity(new Intent(this, NestedScrollingActivity.class));
                 break;
             default:
                 break;

@@ -1,5 +1,7 @@
 package com.example.dragdemo;
 
+import com.example.dragdemo.iview.IServerStatus;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ServerSocket;
